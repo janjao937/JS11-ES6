@@ -8,3 +8,18 @@ doubleAndReturnArgs([2], 10, 4);
 
 ```*/
 
+const doubleAndReturnArgs = (...nums)=>{
+    const fillterArr = nums.filter((e)=> !Array.isArray(e));
+    const nasted = nums.filter((e)=> Array.isArray(e));
+
+    const result = [];
+    nasted.forEach((e)=> e.forEach((e)=>result.push(e)));
+
+    fillterArr.map((e)=>result.push(e*2));
+
+    return result;
+}
+
+console.log(doubleAndReturnArgs([1, 2, 3], 4, 4)); 
+// expexted result: [1, 2, 3, 8, 8]
+console.log(doubleAndReturnArgs([2], 10, 4));
