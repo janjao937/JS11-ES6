@@ -23,6 +23,16 @@ const mergeObjects = (...objs) =>
     return result;
 }
 
+const mergeObjVer2=(...objs)=>{
+
+    let result ={};
+    for (const iterator of objs) 
+    {
+        result ={...iterator,...result};
+    }
+    return result;
+}
+
 //Test Object
 const tester =
 {
@@ -41,7 +51,7 @@ const tester2 =
 
 console.log(mergeObjects(tester,tester2));  
 
-
+console.log(mergeObjVer2(tester,tester2));
 
 // items.map(item => {})
 
